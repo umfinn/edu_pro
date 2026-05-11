@@ -15,7 +15,7 @@
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
     <nav class="navbar bg-base-100">
         <div class="navbar-start">
-            <a href="/" class="btn btn-ghost text-xl">🐦 Chirper</a>
+            <a href="/" class="btn btn-ghost text-xl">😅 PD-test Team</a>
         </div>
         <div class="navbar-end gap-2">
             <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
@@ -29,7 +29,7 @@
 
     <footer class="footer footer-center p-5 bg-base-300 text-base-content text-xs">
         <div>
-            <p>© 2025 Chirper - Built with Laravel and ❤️</p>
+            <p>© 2025 PD-test Team - Built with Laravel and 😅</p>
         </div>
     </footer>
 </body>

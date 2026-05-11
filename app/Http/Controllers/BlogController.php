@@ -12,9 +12,9 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = [
-            ['title' => 'My First Blog Post', 'content' => 'This is the content of my first blog post.', 'time' => '2024-06-01 10:00:00'],
-            ['title' => 'Another Day, Another Post', 'content' => 'Here is some more content for another blog post.', 'time' => '2024-06-02 14:30:00'],
-            ['title' => 'Laravel is Awesome!', 'content' => 'I am loving Laravel for building web applications.', 'time' => '2024-06-03 09:15:00'],
+            ['title' => '1st test PD', 'content' => 'Awesome.', 'time' => '2026-05-01 10:00:00'],
+            ['title' => '2nd test skolfolk', 'content' => 'More awesome.', 'time' => '2026-05-02 14:30:00'],
+            ['title' => '3rd test ???', 'content' => 'What can it be???.', 'time' => '2026-05-03 09:15:00'],
         ];
         return view('home', ['blogs' => $blogs]);
     }
