@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $blogs = [
-            ['title' => '1st test PD', 'content' => 'Awesome.', 'time' => '2026-05-01 10:00:00'],
-            ['title' => '2nd test skolfolk', 'content' => 'More awesome.', 'time' => '2026-05-02 14:30:00'],
-            ['title' => '3rd test ???', 'content' => 'What can it be???.', 'time' => '2026-05-03 09:15:00'],
+        $data = [
+            [
+            'title' => 'Register Page',
+            'content' => 'Welcome to the register page!',
+        ]
         ];
-        return view('home', ['blogs' => $blogs]);
+
+        return view('home', ['data' => $data,
+        ]);
     }
 
     /**
