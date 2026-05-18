@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Keep direct access to existing files and folders in the web root.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Prevent rewrite loops if /public is requested directly.
+    RewriteCond %{REQUEST_URI} !^/public/
+
+    # Send everything else to /public where Laravel's default .htaccess handles routing.
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

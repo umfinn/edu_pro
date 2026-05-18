@@ -21,6 +21,74 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Deploying to Loopia Shared Hosting
+
+This project is prepared to run on Loopia shared hosting where the web root usually cannot be pointed directly to Laravel's `public` folder.
+
+### 1) Upload layout
+
+- Upload the full project to your site folder (example: `.../uppstart.plandigital.se/edu_pro`).
+- Keep the project root `index.php` and root `.htaccess` in your web root (or upload this repository directly as the web root).
+
+The root `index.php` now auto-detects common shared-hosting layouts:
+
+- app in current directory
+- app in `./edu_pro`
+- app in `../edu_pro`
+
+### 2) Environment file
+
+- Copy `.env.production` to `.env` on the server.
+- Verify at least these values:
+
+```env
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://your-domain.example
+```
+
+- For SQLite, ensure the file path in `DB_DATABASE` exists and is writable.
+
+### 3) Permissions
+
+Ensure these are writable by PHP:
+
+- `storage/`
+- `bootstrap/cache/`
+- SQLite file and parent directory (if using SQLite)
+
+### 4) Install dependencies and optimize
+
+Run on server (SSH) if available:
+
+```bash
+composer install --no-dev --optimize-autoloader
+php artisan key:generate --force
+php artisan migrate --force
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+If SSH is unavailable, run build/install locally and upload generated files.
+
+### 5) Frontend assets
+
+Build before deploy:
+
+```bash
+npm ci
+npm run build
+```
+
+Upload `public/build` with the rest of the project.
+
+### 6) Typical Loopia checks
+
+- `mod_rewrite` enabled (Loopia usually has this).
+- Domain points to the folder containing root `index.php` and root `.htaccess`.
+- If you get 500 errors, check `storage/logs/laravel.log`.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
