@@ -10,7 +10,8 @@
                     <div>
                         
                         @foreach ($data as $info)
-                            <p class="text-gray-700 mb-4">{{ $info['title'] }} and {{ $info['content'] }}</p> 
+                            <h1 class="font-bold">{{ $info['title'] }}</h1>
+                            <p> {{ $info['content'] }}</p> 
                         @endforeach
                         
                     </div>

@@ -8,8 +8,10 @@
             <div class="card bg-base-100 shadow mt-8">
                 <div class="card-body">
                     <div>
-                        <h1 class="text-2xl font-bold mb-4">Welcome to the Home Page</h1>
-                        
+                        @foreach ($data as $item)
+                            <h1>{{ $item['title'] }}</h1>
+                            <p>{{ $item['content'] }}</p>
+                        @endforeach
                         
                     </div>
                 </div>

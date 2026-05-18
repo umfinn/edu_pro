@@ -18,7 +18,7 @@ class RegisterController extends Controller
         ]
         ];
 
-        return view('home', ['data' => $data,
+        return view('register', ['data' => $data,
         ]);
     }
 
